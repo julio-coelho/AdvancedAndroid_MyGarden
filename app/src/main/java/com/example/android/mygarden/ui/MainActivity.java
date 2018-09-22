@@ -30,6 +30,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.android.mygarden.R;
+import com.facebook.stetho.Stetho;
 
 import static com.example.android.mygarden.provider.PlantContract.BASE_CONTENT_URI;
 import static com.example.android.mygarden.provider.PlantContract.PATH_PLANTS;
@@ -48,6 +49,7 @@ public class MainActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Stetho.initializeWithDefaults(this);
 
         // The main activity displays the garden as a grid layout recycler view
         mGardenRecyclerView = (RecyclerView) findViewById(R.id.plants_list_recycler_view);
