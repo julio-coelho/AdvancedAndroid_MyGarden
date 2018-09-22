@@ -61,7 +61,6 @@ public class PlantListAdapter extends RecyclerView.Adapter<PlantListAdapter.Plan
 
     @Override
     public void onBindViewHolder(PlantViewHolder holder, int position) {
-
         mCursor.moveToPosition(position);
         int idIndex = mCursor.getColumnIndex(PlantEntry._ID);
         int createTimeIndex = mCursor.getColumnIndex(PlantEntry.COLUMN_CREATION_TIME);
@@ -82,7 +81,7 @@ public class PlantListAdapter extends RecyclerView.Adapter<PlantListAdapter.Plan
     }
 
     public void swapCursor(Cursor newCursor) {
-        if (mCursor != null) {
+        if (mCursor != null && mCursor != newCursor) {
             mCursor.close();
         }
         mCursor = newCursor;
